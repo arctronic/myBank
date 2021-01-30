@@ -1,0 +1,50 @@
+body {
+    padding: 100px;
+}
+
+.submit-area {
+    margin-top: 50px;
+    padding: 5% 5%;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px gray;
+}
+
+#enter-btn {
+    border: 1px solid gray;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+#enter-btn:hover {
+    background-color: black;
+    color: white;
+}
+
+#deposite {
+    background-color: blueviolet;
+}
+
+#withdraw {
+    background-color: orangered;
+}
+
+#balance {
+    background-color: slategrey;
+}
+
+.common {
+    padding: 2% 2%;
+    border-radius: 5px;
+    height: 50%;
+    width: 25%;
+    margin: 0px auto;
+    color: white;
+}
+
+.tran-box {
+    padding: 5% 5%;
+    margin: 1% auto;
+    width: 45%;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px gray;
+}

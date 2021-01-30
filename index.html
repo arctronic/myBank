@@ -10,8 +10,93 @@
 </head>
 
 <body>
-    <h1>Welcome to Pioneer Bank</h1>
+    <div id="login-area">
+        <h1 class="text-center">Welcome to Pioneer Bank</h1>
+        <div class="submit-area">
+            <h4>Login</h4>
+            <input type="text" name="" id="" class="form-control" placeholder="Enter your Email"><br>
+            <input type="password" name="" id="" class="form-control" placeholder="Enter your Password"><br>
+            <button class="btn-success" id="enter-btn">Enter</button>
+        </div>
+    </div>
 
+
+    <div id="dashboard" style="display: none;">
+        <div class="row">
+            <div class="col-md-4 common" id="deposite">
+                <h5>Deposite</h5>
+                <h1>$ <span id="total-deposite">00</span></h1>
+            </div>
+            <div class="col-md-4 common" id="withdraw">
+                <h5>Withdraw</h5>
+                <h1>$ <span id="total-withdraw">00</span></h1>
+            </div>
+            <div class="col-md-4 common" id="balance">
+                <h5>Balance</h5>
+                <h1>$ <span id="total-balance">1200</span></h1>
+            </div>
+        </div>
+
+        <div class="row mt-lg-5">
+            <div class="col-md-6 tran-box">
+                <h3>Deposite</h3><br>
+                <input type="text" name="" class="form-control" placeholder="$ to deposite" id="depositeAmount"><br>
+                <button class="btn-danger rounded-1" id="deposite-btn">Deposite</button>
+            </div>
+            <div class="col-md-6 tran-box">
+                <h3>Withdraw</h3><br>
+                <input type="text" name="" class="form-control" placeholder="$ to Withdraw" id="withdrawAmount"><br>
+                <button class="btn-danger rounded-1" id="withdraw-btn">Withdraw</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const loginBtn = document.getElementById("enter-btn");
+
+        const prevWithdraw = document.getElementById("total-withdraw").innerText;
+
+        loginBtn.addEventListener("click", function() {
+            console.log("Log in clicked");
+            document.getElementById("login-area").style.display = "none";
+            document.getElementById("dashboard").style.display = "block";
+        });
+
+        document.getElementById("deposite-btn").addEventListener("click", function() {
+            const prevBalance = document.getElementById("total-balance").innerText;
+            const prevDeposite = document.getElementById("total-deposite").innerText;
+
+            const depositeAmount = document.getElementById("depositeAmount").value;
+
+
+            var totalBal = parseFloat(depositeAmount) + parseFloat(prevBalance);
+            var totalDep = parseFloat(depositeAmount) + parseFloat(prevDeposite);
+
+
+            document.getElementById("total-balance").innerText = totalBal;
+            document.getElementById("total-deposite").innerText = totalDep;
+
+            console.log(totalBal);
+        });
+
+        document.getElementById("withdraw-btn").addEventListener("click", function() {
+            const prevBalance = document.getElementById("total-balance").innerText;
+            const prevWithdraw = document.getElementById("total-withdraw").innerText;
+
+            const withdrawAmount = document.getElementById("withdrawAmount").value;
+
+
+            var totalBal = parseFloat(prevBalance) - parseFloat(withdrawAmount);
+            var totalWithdraw = parseFloat(withdrawAmount) + parseFloat(prevWithdraw);
+
+            if (totalBal >= 0) {
+                this.style.display = "block";
+                document.getElementById("total-balance").innerText = totalBal;
+                document.getElementById("total-withdraw").innerText = totalWithdraw;
+            }
+            console.log(totalWithdraw);
+        });
+    </script>
 </body>
 
 </html>
